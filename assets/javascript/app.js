@@ -43,21 +43,25 @@ $(document).ready(function() {
         $("#startB").on("click", function() {
             //hide start button
             $("#startB").hide();
+            timer();
         });
         //start timer and display the remaining time
-        timer();
+        
     };
     function timer() {
+        //create variable that decrements while time is not 0
         clock = setInterval(countDown, 1000);
         function countDown() {
             if (time < 1) {
+                //clear the clock for the next question 
                 clearInterval(clock);
-                noTime();
             }
             if (time > 0) {
+                //decrease the time remaining 
                 time--;
             }
-            $("#timer").text(time);
+            //render the time
+            $("#timer").text("Time remaining: " + time);
         }
     };
     
@@ -75,6 +79,7 @@ $(document).ready(function() {
     //move to the next question
 
     //reset the timer
+    
 
     //after the last question, show the final results
 
