@@ -30,29 +30,35 @@ $(document).ready(function() {
     ];
   console.log(questions);
 
-//variables for timing, score keeping, and tracking what is the current question 
-var time = 5,
-    correctGuesses = 0,
-    incorrectGuesses = 0,
-    currentQ = 0;
+    //variables for timing, score keeping, and tracking what is the current question 
+    var time = 5,
+        correctGuesses = 0,
+        incorrectGuesses = 0,
+        currentQ = 0;
 
 
-//start button to begin the game
+    //start button to begin the game
+    function beginGame (){
+        $("#startB").on("click", function() {
+            $("#startB").hide();
+        })
 
-//hide start button
+    };
+    beginGame();
+    //hide start button
 
-//start timer and display the remaining time 
+    //start timer and display the remaining time 
 
-//show first question and answer options
+    //show first question and answer options
 
-//click event to store the users answer
+    //click event to store the users answer
 
-//compare the users answer to the correct answer
+    //compare the users answer to the correct answer
 
-//move to the next question
+    //move to the next question
 
-//reset the timer
+    //reset the timer
 
-//after the last question, show the final results
+    //after the last question, show the final results
 
 });
