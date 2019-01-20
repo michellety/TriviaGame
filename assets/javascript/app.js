@@ -36,18 +36,35 @@ $(document).ready(function() {
         incorrectGuesses = 0,
         currentQ = 0;
 
-
     //start button to begin the game
+    beginGame();
+    
     function beginGame (){
         $("#startB").on("click", function() {
+            //hide start button
             $("#startB").hide();
-        })
-
+        });
+        //start timer and display the remaining time
+        timer();
     };
-    beginGame();
-    //hide start button
+    function timer() {
+        clock = setInterval(countDown, 1000);
+        function countDown() {
+            if (time < 1) {
+                clearInterval(clock);
+                noTime();
+            }
+            if (time > 0) {
+                time--;
+            }
+            $("#timer").text(time);
+        }
+    };
+    
+    
+    
 
-    //start timer and display the remaining time 
+    
 
     //show first question and answer options
 
