@@ -141,9 +141,17 @@ $(document).ready(function() {
         $("#game").html("Your score: <strong> " + "<br>" +
         correctGuesses + " correct" + 
         "<br>" + incorrectGuesses + " incorrect");
+
+        //reset the score and counter parameters 
+        gameReset();
     };
 
-    //reset the timer
+    //reset the score and counter parameters 
+    function gameReset(){
+        currentQ = 0;
+        correctGuesses = 0;
+        incorrectGuesses = 0;
+    }
     
 
     
