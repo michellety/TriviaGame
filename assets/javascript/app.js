@@ -31,7 +31,7 @@ $(document).ready(function() {
   console.log(questions);
 
     //variables for timing, score keeping, and tracking what is the current question 
-    var time = 5,
+    var time = 15,
         correctGuesses = 0,
         incorrectGuesses = 0,
         currentQ = 0;
@@ -64,7 +64,7 @@ $(document).ready(function() {
                 time--;
             }
             //render the time
-            $("#timer").text("Time remaining: " + time);
+            $("#timer").html("Time remaining: " + time);
         }
     };
     
@@ -89,31 +89,30 @@ $(document).ready(function() {
     $("#game").on("click", ".options", function(){
         // alert("clicked!");
         //answer stored in new variable
-        var userGuess = $(this).text();
+        var userGuess = $(this).html();
+        
         //compare userGuess with the correct answer
-
         //increment correctGuesses if right answer 
         if (userGuess === questions[currentQ].correctAnswer){
             //declare correct
-            $("#game").text("Right!");
-            //set a variable to the correct answer to display 
-            var correctA =  questions[currentQ].correctAnswer;
+            $("#game").html("Right!");
             //increment the score for correct answers
             correctGuesses++;
+            //set a variable to the correct answer to display 
+            var correctA =  questions[currentQ].correctAnswer;
             //move to the next question, after 2 seconds
-            currentQ++;
             setTimeout(nextQuestion, 2000);
+            currentQ++;
             //clear the clock variable to reset the timer 
             clearInterval(clock);
-
-
+            
         //increment incorrectGuesses if wrong answer
         } else if (userGuess != questions[currentQ].correctAnswer){
             //declare incorrect
-            $("#game").text("Incorrect!");
+            $("#game").html("Incorrect!");
             //show the correct answer 
             var correctA =  questions[currentQ].correctAnswer;
-            $("#game").text("The correct answer was: " + correctA);
+            $("#game").html("The correct answer was: " + correctA);
             incorrectGuesses++;
             //move to the next question, after 2 seconds
             currentQ++;
@@ -124,10 +123,10 @@ $(document).ready(function() {
         //if no selection, increment incorrectGuesses 
         } else if (userGuess === undefined) {
             //declare incorrect
-            $("#game").text("Incorrect!");
+            $("#game").html("Incorrect!");
             //show the correct answer 
             var correctA =  questions[currentQ].correctAnswer;
-            $("#game").text("The correct answer was: " + correctA);
+            $("#game").html("The correct answer was: " + correctA);
             incorrectGuesses++;
             //move to the next question, after 2 seconds 
             currentQ++;
@@ -143,10 +142,10 @@ $(document).ready(function() {
         if(currentQ <questions.length){
             //reset timer
             time = 5;
-            // $("#game").text("You have " + time + "seconds left!");
+            
             showQs();
             timer();
-
+        
         } else {
             //after the last question, show the final results
             displayScore();
