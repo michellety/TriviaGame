@@ -94,29 +94,42 @@ $(document).ready(function() {
 
         //increment correctGuesses if right answer 
         if (userGuess === questions[currentQ].correctAnswer){
+            //declare correct
+            $("#game").text("Right!");
             correctGuesses++;
-            //move to the next question
+            //move to the next question, after 2 seconds
             currentQ++;
             setTimeout(nextQuestion, 2000);
+            //clear the clock variable to reset the timer 
+            clearInterval(clock);
 
 
         //increment incorrectGuesses if wrong answer
         } else if (userGuess != questions[currentQ].correctAnswer){
+            //declare incorrect
+            $("#game").text("Incorrect!");
+            //show the correct answer 
+
             incorrectGuesses++;
-            //move to the next question
+            //move to the next question, after 2 seconds
             currentQ++;
             setTimeout(nextQuestion, 2000);
+            //clear the clock variable to reset the timer 
+            clearInterval(clock); 
 
         //if no selection, increment incorrectGuesses 
         } else if (userGuess === undefined) {
+            //declare incorrect
+            $("#game").text("Incorrect!");
+            //show the correct answer 
+
             incorrectGuesses++;
-            //move to the next question
+            //move to the next question, after 2 seconds 
             currentQ++;
             setTimeout(nextQuestion, 2000);
-
+            //clear the clock variable to reset the timer 
+            clearInterval(clock);
         }
-
-
     });
     
     //move to the next question
@@ -125,7 +138,7 @@ $(document).ready(function() {
         if(currentQ <questions.length){
             //reset timer
             time = 5;
-            $("#game").text("<p>You have <span id='timer'>" + time + "</span> seconds left!</p>");
+            // $("#game").text("You have " + time + "seconds left!");
             showQs();
             timer();
 
@@ -138,9 +151,9 @@ $(document).ready(function() {
 
     //show final results
     function displayScore(){
-        $("#game").html("Your score: <strong> " + "<br>" +
-        correctGuesses + " correct" + 
-        "<br>" + incorrectGuesses + " incorrect");
+        $("#game").html("Your score:  " + "<br>" +
+         "Correct answers" + correctGuesses + "<br>" + 
+         "Incorrect answers" + incorrectGuesses);
 
         //reset the score and counter parameters 
         gameReset();
@@ -153,10 +166,4 @@ $(document).ready(function() {
         incorrectGuesses = 0;
     }
     
-
-    
-
-
-    
-
 });
