@@ -96,6 +96,9 @@ $(document).ready(function() {
         if (userGuess === questions[currentQ].correctAnswer){
             //declare correct
             $("#game").text("Right!");
+            //set a variable to the correct answer to display 
+            var correctA =  questions[currentQ].correctAnswer;
+            //increment the score for correct answers
             correctGuesses++;
             //move to the next question, after 2 seconds
             currentQ++;
@@ -109,7 +112,8 @@ $(document).ready(function() {
             //declare incorrect
             $("#game").text("Incorrect!");
             //show the correct answer 
-
+            var correctA =  questions[currentQ].correctAnswer;
+            $("#game").text("The correct answer was: " + correctA);
             incorrectGuesses++;
             //move to the next question, after 2 seconds
             currentQ++;
@@ -122,7 +126,8 @@ $(document).ready(function() {
             //declare incorrect
             $("#game").text("Incorrect!");
             //show the correct answer 
-
+            var correctA =  questions[currentQ].correctAnswer;
+            $("#game").text("The correct answer was: " + correctA);
             incorrectGuesses++;
             //move to the next question, after 2 seconds 
             currentQ++;
@@ -151,9 +156,9 @@ $(document).ready(function() {
 
     //show final results
     function displayScore(){
-        $("#game").html("Your score:  " + "<br>" +
-         "Correct answers" + correctGuesses + "<br>" + 
-         "Incorrect answers" + incorrectGuesses);
+        $("#game").html("Your score: " + "<br>" +
+         "Correct answers: " + correctGuesses + "<br>" + 
+         "Incorrect answers: " + incorrectGuesses);
 
         //reset the score and counter parameters 
         gameReset();
