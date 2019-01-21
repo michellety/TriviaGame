@@ -31,7 +31,8 @@ $(document).ready(function() {
   console.log(questions);
 
     //variables for timing, score keeping, and tracking what is the current question 
-    var time = 5,
+    var $app = $('#qs')
+        time = 5,
         correctGuesses = 0,
         incorrectGuesses = 0,
         currentQ = 0;
@@ -43,7 +44,10 @@ $(document).ready(function() {
         $("#startB").on("click", function() {
             //hide start button
             $("#startB").hide();
+            //show and start countdown 
             timer();
+            //function to display the question and options
+            showQs();
         });
         //start timer and display the remaining time
         
@@ -65,12 +69,25 @@ $(document).ready(function() {
         }
     };
     
-    
-    
-
-    
-
     //show first question and answer options
+    function showQs(){
+        $("#game").append("<p>" + 
+    		questions[currentQ].question + 
+    		"</p><p class='options'>" + 
+    		questions[currentQ].options[0] + 
+    		"</p><p class='options'>" + 
+    		questions[currentQ].options[1] + 
+    		"</p><p class='options'>" + 
+    		questions[currentQ].options[2] + 
+    		"</p><p class='options'>" + 
+    		questions[currentQ].options[3] + 
+    		"</p>");
+       
+    };
+    
+        
+
+
 
     //click event to store the users answer
 
