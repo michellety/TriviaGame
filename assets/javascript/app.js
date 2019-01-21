@@ -97,21 +97,23 @@ $(document).ready(function() {
             correctGuesses++;
             //move to the next question
             currentQ++;
-            nextQuestion();
+            setTimeout(nextQuestion, 2000);
+
 
         //increment incorrectGuesses if wrong answer
         } else if (userGuess != questions[currentQ].correctAnswer){
             incorrectGuesses++;
             //move to the next question
             currentQ++;
-            nextQuestion();
+            setTimeout(nextQuestion, 2000);
 
         //if no selection, increment incorrectGuesses 
         } else if (userGuess === undefined) {
             incorrectGuesses++;
             //move to the next question
             currentQ++;
-            nextQuestion();
+            setTimeout(nextQuestion, 2000);
+
         }
 
 
@@ -129,7 +131,16 @@ $(document).ready(function() {
 
         } else {
             //after the last question, show the final results
+            displayScore();
         }
+    };
+
+
+    //show final results
+    function displayScore(){
+        $("#game").html("Your score: <strong> " + "<br>" +
+        correctGuesses + " correct" + 
+        "<br>" + incorrectGuesses + " incorrect");
     };
 
     //reset the timer
