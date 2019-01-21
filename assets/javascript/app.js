@@ -31,8 +31,7 @@ $(document).ready(function() {
   console.log(questions);
 
     //variables for timing, score keeping, and tracking what is the current question 
-    var $app = $('#qs')
-        time = 5,
+    var time = 5,
         correctGuesses = 0,
         incorrectGuesses = 0,
         currentQ = 0;
@@ -86,10 +85,12 @@ $(document).ready(function() {
     };
     
         
+    //click event to store the users answer, based on which class option they click
+    $("#game").on("click", ".options", function(){
+        alert("clicked!");
 
-
-
-    //click event to store the users answer
+    });
+    
 
     //compare the users answer to the correct answer
 
@@ -99,5 +100,8 @@ $(document).ready(function() {
     
 
     //after the last question, show the final results
+
+
+    
 
 });
