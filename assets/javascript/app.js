@@ -4,7 +4,7 @@ $(document).ready(function() {
 //array containing the question, multiple answer options, and the correct answer 
     var questions = [
       {
-        question: "How many national parks are in the USA?",
+        question: "How many National Parks are in the USA?",
         options: ["103", "58", "86", "162"],
         correctAnswer: "58"
       },
@@ -16,9 +16,45 @@ $(document).ready(function() {
       },
   
       {
-        question: "Where is the largest National park?",
+        question: "Where is the largest National Park?",
         options: ["Florida", "Oregon", "Montana", "Alaska"],
         correctAnswer: "Alaska"
+      },
+
+      {
+        question: "How many stated do not have even one National Park?",
+        options: ["11", "6", "17", "23"],
+        correctAnswer: "23"
+      },
+
+      {
+        question: "The smallest National park is 5,500 acres.  Where is it located?",
+        options: ["Vermont", "Arkansas", "New Mexico", "Rhode Island"],
+        correctAnswer: "Arkansas"
+      },
+
+      {
+        question: "Mammoth Cave National Park in Kentucky has over __ miles of mapped caves?",
+        options: ["1,000", "200", "400", "600"],
+        correctAnswer: "400"
+      },
+
+      {
+        question: "Joshua Tree National Park is in what part of California?",
+        options: ["Northern", "Eastern", "Southern", "Not in California"],
+        correctAnswer: "Southern"
+      },
+
+      {
+        question: "The lowest point in North America is a National Park.  Which one?",
+        options: ["Death Vallery", "Kings Canyon", "Bryce's Canyon", "The Grand Canyon"],
+        correctAnswer: "Death Valley"
+      },
+
+      {
+        question: "The General Sherman Tree is a main attraction in which National Park?",
+        options: ["Rocky Mountain", "Arches", "Sequoia", "Alaska"],
+        correctAnswer: "Sequoia"
       },
   
       {
