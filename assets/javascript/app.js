@@ -88,6 +88,23 @@ $(document).ready(function() {
     //click event to store the users answer, based on which class option they click
     $("#game").on("click", ".options", function(){
         alert("clicked!");
+        //answer stored in new variable
+        var userGuess = $(this).text();
+        //compare userGuess with the correct answer
+
+        //increment correctGuesses if right answer 
+        if (userGuess === questions[currentQ].correctAnswer){
+            correctGuesses++;
+
+        //increment incorrectGuesses if wrong answer
+        } else if (userGuess != questions[currentQ].correctAnswer){
+            incorrectGuesses++;
+
+        //if no selection, increment incorrectGuesses 
+        } else if (userGuess === undefined) {
+            incorrectGuesses++;
+        }
+
 
     });
     
