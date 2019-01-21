@@ -87,7 +87,7 @@ $(document).ready(function() {
         
     //click event to store the users answer, based on which class option they click
     $("#game").on("click", ".options", function(){
-        alert("clicked!");
+        // alert("clicked!");
         //answer stored in new variable
         var userGuess = $(this).text();
         //compare userGuess with the correct answer
@@ -95,28 +95,47 @@ $(document).ready(function() {
         //increment correctGuesses if right answer 
         if (userGuess === questions[currentQ].correctAnswer){
             correctGuesses++;
+            //move to the next question
+            currentQ++;
+            nextQuestion();
 
         //increment incorrectGuesses if wrong answer
         } else if (userGuess != questions[currentQ].correctAnswer){
             incorrectGuesses++;
+            //move to the next question
+            currentQ++;
+            nextQuestion();
 
         //if no selection, increment incorrectGuesses 
         } else if (userGuess === undefined) {
             incorrectGuesses++;
+            //move to the next question
+            currentQ++;
+            nextQuestion();
         }
 
 
     });
     
-
-    //compare the users answer to the correct answer
-
     //move to the next question
+    function nextQuestion(){
+        //while there are still more questions left
+        if(currentQ <questions.length){
+            //reset timer
+            time = 5;
+            $("#game").text("<p>You have <span id='timer'>" + time + "</span> seconds left!</p>");
+            showQs();
+            timer();
+
+        } else {
+            //after the last question, show the final results
+        }
+    };
 
     //reset the timer
     
 
-    //after the last question, show the final results
+    
 
 
     
