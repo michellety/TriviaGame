@@ -106,6 +106,7 @@ $(document).ready(function() {
     
     //show first question and answer options
     function showQs(){
+        //should change to a for loop 
         $("#game").append("<p>" + 
     		questions[currentQ].question + 
     		"</p><p class='options'>" + 
@@ -119,8 +120,7 @@ $(document).ready(function() {
     		"</p>");
        
     };
-    
-        
+       
     //click event to store the users answer, based on which class option they click
     $("#game").on("click", ".options", function(){
         // alert("clicked!");
@@ -178,7 +178,6 @@ $(document).ready(function() {
         if(currentQ <questions.length){
             //reset timer
             time = 5;
-            
             showQs();
             timer();
         
@@ -187,7 +186,6 @@ $(document).ready(function() {
             displayScore();
         }
     };
-
 
     //show final results
     function displayScore(){
